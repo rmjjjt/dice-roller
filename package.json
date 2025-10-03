@@ -7,6 +7,9 @@
   "bin": {
     "roll": "dist/cli.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/cli.ts",
