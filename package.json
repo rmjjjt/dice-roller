@@ -13,7 +13,9 @@
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/cli.ts",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "demo": "cd demo && npm run dev",
+    "demo:build": "cd demo && npm run build"
   },
   "keywords": [
     "dnd",
