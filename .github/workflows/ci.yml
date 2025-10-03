@@ -1,10 +1,10 @@
-name: CI/CD
+name: CI, Publish & Deploy
 
 on:
   push:
     branches: [main]
     tags:
-      - 'v*'   # run when pushing tags like v0.1.0, v1.2.3
+      - 'v*'   # triggers npm publish on version tags
   pull_request:
     branches: [main]
 
@@ -14,14 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install root dependencies
+        run: npm install
 
       - name: Run tests
         run: npm test
@@ -42,13 +42,56 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install root dependencies
+        run: npm install
 
-      - name: Build
+      - name: Build library
         run: npm run build
 
       - name: Publish to npm
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Build library
+        run: npm run build
+
+      - name: Install demo dependencies
+        run: cd demo && npm install
+
+      - name: Clean old demo build
+        run: rm -rf demo/dist
+
+      - name: Build demo
+        run: cd demo && npm run build
+
+      - name: Upload demo build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: demo/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

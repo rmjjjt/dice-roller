@@ -9,7 +9,12 @@ export default defineConfig({
     outDir: "dist",             // build output relative to demo/
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, "index.html") // entry HTML
+      input: path.resolve(__dirname, "index.html"), // entry HTML
+      output: {
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: `assets/[name].[hash].[ext]`
+      }
     }
   }
 });
