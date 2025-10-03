@@ -5,8 +5,9 @@
 **Roll dice like a pro for Dungeons & Dragons & tabletop RPGs!**  
 Supports **standard dice notation**, **advantage/disadvantage**, **exploding dice**, **drop/keep rules**, and **probability simulations** with ASCII histograms.
 
-[![npm version](https://img.shields.io/npm/v/dice-roller?color=brightgreen&label=npm)](https://www.npmjs.com/package/@rmjjjt/dice-roller)
+[![npm](https://img.shields.io/npm/v/@rmjjjt/dice-roller?color=brightgreen&label=npm)](https://www.npmjs.com/package/@rmjjjt/dice-roller)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/rmjjjt/dice-roller/ci.yml?label=build&logo=github&color=blue)](https://github.com/rmjjt/dice-roller/actions/workflows/ci.yml)
+
 [![GitHub Pages](https://img.shields.io/badge/demo-live-blue?style=for-the-badge)](https://rmjjjt.github.io/dice-roller/)
 [![License](https://img.shields.io/badge/license-MIT-orange?style=for-the-badge)](LICENSE.md)
 ---
