@@ -1,4 +1,15 @@
-import {DiceExpression} from './types'
+export interface DiceExpression {
+  count: number;
+  sides: number;
+  dropLowest?: number;
+  dropHighest?: number;
+  keepLowest?: number;
+  keepHighest?: number;
+  modifier?: number;
+  exploding?: boolean;
+  advantage?: boolean;
+  disadvantage?: boolean;
+}
 
 export function parseDice(expr: string): DiceExpression {
   const clean = expr.toLowerCase().trim();

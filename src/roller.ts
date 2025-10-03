@@ -1,5 +1,12 @@
-import {RollResult} from './types'
 import {parseDice} from './parser'
+
+// Result of a single dice expression evaluation
+export interface RollResult {
+  expression: string;      // Original input (e.g. "4d6dl1+2")
+  rolls: number[];         // All raw rolls
+  kept: number[];          // Rolls after applying modifiers (drop/keep)
+  total: number;           // Final sum after modifiers
+}
 
 function rollSingle(sides: number, exploding = false): number[] {
   const rolls: number[] = [];
