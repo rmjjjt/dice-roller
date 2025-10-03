@@ -67,7 +67,7 @@ export const DiceRoller = () => {
   return (
     <div style={{ padding: "16px", border: "1px solid #ccc", borderRadius: "8px", maxWidth: "100%", overflowX: "hidden" }}>
       <h2>Dice Roller</h2>
-
+      <p>Use these suggestions, or try some of your own (&lt;numberOfDiceToRoll&gt;d&lt;numberOfSidesOnDice&gt;)!</p>
       {/* Suggestions */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "8px", flexWrap: "wrap" }}>
         {suggestions.map((s) => (
