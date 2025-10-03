@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-// @ts-ignore
-// const { roll, simulate } =require("@rmjjjt/dice-roller");
-const roll = (a) => {}
-const simulate = (a: any, b: any) => a+b
+import {roll, simulate} from '@rmjjjt/dice-roller'
 
 export default function DiceRoller() {
   const [expr, setExpr] = useState("4d6dl1");
