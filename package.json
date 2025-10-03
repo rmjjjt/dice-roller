@@ -1,6 +1,6 @@
 {
   "name": "@rmjjjt/dice-roller",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Extensible dice roller for D&D and tabletop games (supports simulation + ASCII histograms)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
