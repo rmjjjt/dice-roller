@@ -1,0 +1,32 @@
+{
+  "name": "dice-roller",
+  "version": "0.1.0",
+  "description": "Extensible dice roller for D&D and tabletop games (supports simulation + ASCII histograms)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "roll": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/cli.ts",
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "dnd",
+    "dice",
+    "d20",
+    "roller",
+    "simulation",
+    "ttrpg"
+  ],
+  "author": "RM JJJ Toasterface",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  }
+}
