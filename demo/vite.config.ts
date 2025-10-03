@@ -4,7 +4,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "@rmjjjt/dice-roller/",      // Needed for GitHub Pages
+  base: "/@rmjjjt/dice-roller/",      // Needed for GitHub Pages
   build: {
     outDir: "dist",             // build output relative to demo/
     emptyOutDir: true,
